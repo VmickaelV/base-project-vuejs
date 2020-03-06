@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My first Vue app</title>
+  <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+  <div id="app">
+    <h1>Exemple de v-if</h1>
+    <a href="text.html">Exemple { text }}</a>
+    <a href="v-show.html">Exemple v-show</a>
+
+    <p v-if="visible" style="width: 200px;height: 200px; background-color: blueviolet;">Bloc exemple</p>
+  </div>
+
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        visible: true
+      }
+    })
+  </script>
+</body>
+</html>

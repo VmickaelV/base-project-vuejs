@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My first Vue app</title>
+  <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+  <div id="app">
+    <h1>Exemple de v-bind</h1>
+    <a href="v-show.html">Exemple v-show</a>
+    <a href="v-on.html">Exemple v-on</a>
+
+    <div>
+      <button v-bind:disabled="isButtonDisabled">Button</button>
+    </div>
+    <div>
+      <img :src="urlImageLink"/>
+    </div>
+    <div>
+      <input type="text" :value="valeurFormulaire" />
+    </div>
+  </div>
+
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        isButtonDisabled: false,
+        urlImageLink: 'https://randomuser.me/api/portraits/lego/3.jpg',
+        valeurFormulaire: 'Réponse'
+      }
+    })
+  </script>
+</body>
+</html>

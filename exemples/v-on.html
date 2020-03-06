@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My first Vue app</title>
+  <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+  <div id="app">
+    <h1>Exemple de v-on</h1>
+    <a href="v-bind.html">Exemple v-bind</a>
+    <a href="v-model.html">Exemple v-model</a>
+
+    <div>
+      <a href="https://www.w3schools.com/tags/ref_eventattributes.asp">Liste des Events</a>
+    </div>
+
+    <div>
+      <button @click="log('click du bouton')">Bloc exemple</button>
+    </div>
+
+    <div>
+      <input type="text" @focus="log('event : focus')" />
+    </div>
+
+    <div>
+      <p @mouseover="log('event : mouse over')">Mouse Over</p>
+    </div>      
+  </div>
+
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        visible: true
+      },
+      methods: {
+        log(text) {
+          console.debug(text)
+        }
+      }
+    })
+  </script>
+</body>
+</html>

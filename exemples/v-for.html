@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My first Vue app</title>
+  <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+  <div id="app">
+    <h1>Exemple de v-for</h1>
+    <a href="v-model.html">Exemple v-model</a>
+    <a href="bind-class.html">Exemple v-bind avec class</a>
+
+    <ul>
+      <li v-for="(item, i) in items">{{ item }}</li>
+    </ul>
+
+    <ol>
+      <li v-for="(item, i) in itemsSecond">{{ item }}</li>
+    </ol>
+
+    <button @click="addRandom">Add Random</button>
+    <button @click="setRandom">Set Random</button>
+    <button @click="setReactiveRandom">Set Reactive Random</button>
+  </div>
+
+  <script>
+    function getRandomInt(max) {
+      return Math.floor(Math.random() * Math.floor(max));
+    }
+
+    var app = new Vue({
+      el: '#app',
+      data: {
+        items: ['bananes', 'chocolat', 'pâtes'],
+        itemsSecond: ['bananes', 'chocolat', 'pâtes']
+      },
+      methods: {
+        addRandom() {
+          this.itemsSecond.push(getRandomInt(10))
+        },
+        setRandom() {
+          this.itemsSecond[1] = getRandomInt(10)
+        },
+        setReactiveRandom() {
+          Vue.set(this.itemsSecond, 1, getRandomInt(10))
+        }
+      }
+    })
+  </script>
+</body>
+</html>

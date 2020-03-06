@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My first Vue app</title>
+  <script src="https://unpkg.com/vue"></script>
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+  <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+</head>
+<body>
+  <div id="app">
+    <h1>Exemple de v-model</h1>
+    <a href="v-for.html">Exemple v-for</a>
+    <a href="computed.html">Exemple computed</a>
+
+    <div class="field" :class="{active: isActive, focus: hasFocus, hasError: hasError}">
+      Texte : vérifiez la classe de la balise
+    </div>
+
+    <div :class="['field', 'field-' + fieldType, hasError ? 'hasError' : '']">
+      Field : vérifiez la classe de la balise
+    </div>
+
+    <div>
+      <h2>Options</h2>
+      <label for="isActive">isActive</label>
+      <input id="isActive" type="checkbox" v-model="isActive"/>
+
+      <label for="hasFocus">hasFocus</label>
+      <input id="hasFocus" type="checkbox" v-model="hasFocus"/>
+
+      <label for="hasError">hasError</label>
+      <input id="hasError" type="checkbox" v-model="hasError"/>
+
+      <label for="fieldType">fieldType</label>
+      <input id="fieldType" type="text" v-model="fieldType"/>
+    </div>
+  </div>
+
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        isActive: false,
+        hasFocus: false,
+        hasError: false,
+        fieldType: 'success'
+      }
+    })
+  </script>
+</body>
+</html>

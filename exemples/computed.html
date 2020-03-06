@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My first Vue app</title>
+  <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+  <div id="app">
+    <h1>Exemple de computed</h1>
+    <div id="example_probleme">
+      {{ message.split('').reverse().join('') }}
+    </div>
+
+    <div id="example_probleme">
+        {{ reversedMessage }}
+      </div>
+  </div>
+
+  <script>
+    function getRandomInt(max) {
+      return Math.floor(Math.random() * Math.floor(max));
+    }
+
+    var app = new Vue({
+      el: '#app',
+      data: {
+        message: 'Hello'
+      },
+      computed: {
+        // a computed getter
+        reversedMessage: function () {
+          // `this` points to the vm instance
+          return this.message.split('').reverse().join('')
+        }
+      }
+    })
+  </script>
+</body>
+</html>

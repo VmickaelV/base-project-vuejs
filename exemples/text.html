@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My first Vue app</title>
+  <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+  <div id="app">
+    <h1>Exemple de { { text }}</h1>
+    <a href="v-if.html">Exemple v-if</a>
+
+    <p>{{ text }}</p>
+    <p>Bonjour {{ prenom }}</p>
+    <p>{{ rawHtml }}</p>
+  </div>
+
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        text: 'Je suis un texte',
+        prenom: 'Mickael',
+        rawHtml: '<p>Je suis un texte</p>'
+      }
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My first Vue app</title>
+  <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+  <div id="app">
+    <h1>Exemple de v-model</h1>
+    <a href="v-on.html">Exemple v-on</a>
+    <a href="v-for.html">Exemple v-for</a>
+
+    <div>
+      <input type="text" v-model="prenom" />
+    </div>
+
+    <div>
+      <input type="checkbox" v-model="active" name="active" id="active"/> 
+      <label for="active">Active Checkbox</label>
+    </div>
+  </div>
+
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        prenom: 'Mickael',
+        active: true
+      }
+    })
+  </script>
+</body>
+</html>
