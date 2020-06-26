@@ -1,6 +1,6 @@
 import { axios } from './index'
 
-export default class IngredientsApi {
+export class IngredientsApi {
     constructor(axiosInstance) {
         this.axios = axiosInstance
     }
@@ -17,4 +17,4 @@ export default class IngredientsApi {
     }
 }
 
-export const ingredientsApi = new IngredientsApi(axios)
+export default new IngredientsApi(axios)
