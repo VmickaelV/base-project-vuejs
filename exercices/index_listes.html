@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>My first Vue app</title>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+<div id="app">
+    Ma liste de courses :<br />
+    Nouvelle élément <input @keyup.enter="ajout" v-model="element" />
+
+    Filtre : <input v-model="filter" />
+    <transition-group tag="ul" name="list" v-if="courses.length > 0">
+        <li v-for="(item, index) in filteredList" :key="item" @click="supprime(index)">{{item}}</li>
+    </transition-group>
+    <p v-else><i>Votre liste de courses est vide</i></p>
+</div>
+
+<script>
+var app = new Vue({
+    el: '#app',
+    data: {
+        element: '',
+        courses: [
+            'bananes', 'chocolat', 'noisettes',
+        ],
+        filter: '',
+    },
+    methods: {
+        ajout() {
+            if (this.element.length > 0) {
+                this.courses.push(this.element)
+                this.element = ''
+            }
+        },
+        supprime(index) {
+            if (this.filter.length === 0) {
+                this.courses.splice(index, 1)
+            }
+        },
+    },
+    computed: {
+        filteredList() {
+            if (this.filter.length > 0) {
+                const loweredFilter = this.filter.toLowerCase()
+                return this.courses.filter(el => el.toLowerCase().includes(loweredFilter))
+            } else {
+                return this.courses
+            }
+        }
+    }
+})
+</script>
+
+<style>
+.list-enter-active, .list-leave-active {
+    transition: all 1s;
+}
+
+.list-enter /* .list-leave-active below version 2.1.8 */
+{
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.list-leave-to {
+    opacity: 0;
+    transform: translateX(30px);
+}
+
+.list-move {
+    transition: all 1s;
+}
+</style>
+</body>
+</html>

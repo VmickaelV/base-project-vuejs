@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>My first Vue app</title>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+<div id="app">
+    <h1>Inscription</h1>
+
+    <form>
+        <div class="field" :class="{invalid: !lazy && !nameValid}">
+            <label for="name">Nom</label>
+            <input id="name" v-model="form.name" placeholder="Votre nom" />
+            <div class="info">La taille doit être entre 3 et 10 lettres et tout en majuscule</div>
+        </div>
+
+        <div class="field" :class="{invalid: !lazy && !firstnameValid}">
+            <label for="firstname">Prénom</label>
+            <input id="firstname" v-model="form.firstname" placeholder="Votre prénom" />
+            <div class="error">{{ firstname_error }}</div>
+        </div>
+
+        <div class="field" :class="{invalid: !lazy && !emailValid}">
+            <label for="email">Email</label>
+            <input id="email" v-model="form.email" placeholder="Votre mail (ex: adupont@wanadoo.fr)" />
+            <div class="error">Format email Invalide</div>
+        </div>
+
+        <button @click.prevent="send" :disabled="!lazy && !validForm">S'inscrire</button>
+    </form>
+</div>
+
+<script>
+function capitalize(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+}
+
+var app = new Vue({
+    el: '#app',
+    data: {
+        form: {
+            name: '',
+            firstname: '',
+            email: ''
+        },
+        lazy: true,
+    },
+    methods: {
+        send() {
+            this.lazy = false
+            if (this.validForm) {
+                alert('Formulaire valide')
+                this.form = {
+                    firstname: '',
+                    email: '',
+                    name: ''
+                }
+            }
+        }
+    },
+    computed: {
+        nameValid() {
+            const name = this.form.name
+            return name.length >= 3 && name.length <= 10 && name.toUpperCase() === name
+        },
+        firstname_error() {
+            const firstname = this.form.firstname
+            if (firstname.length === 0) {
+                return "Le prénom ne doit pas être vide"
+            } else if (firstname !== capitalize(firstname)) {
+                return "Le prénom n'est pas capitalizé"
+            } else {
+                return undefined
+            }
+        },
+        firstnameValid() {
+          return this.firstname_error === undefined
+        },
+        validForm() {
+            return this.nameValid && this.firstnameValid && this.emailValid
+        },
+        emailValid() {
+            return this.form.email.includes("@")
+        }
+    },
+})
+</script>
+
+<style>
+.field.invalid {
+    color: red
+}
+.field.invalid input {
+    border-color: red
+}
+
+.field .error {
+    display: none;
+}
+
+.field.invalid .error {
+    display: inherit;
+}
+
+</style>
+</body>
+</html>
