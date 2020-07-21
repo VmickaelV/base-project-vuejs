@@ -6,7 +6,7 @@ export class CocktailApi {
     }
 
     findAll() {
-        return this.axios.get('/cocktails')
+        return this.axios.get('/recipes')
     }
 }
 
