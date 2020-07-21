@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>My first Vue app</title>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+<div id="app">
+    <section>
+        <h2>Liste des Présents</h2>
+        <input type="text" v-model="filtre">
+        <ul v-if="presentsFiltres.length > 0">
+            <li v-for="item in presentsFiltres">{{ item }}</li>
+        </ul>
+        <div v-else><i>Aucun résultat trouvé</i></div>
+    </section>
+</div>
+
+<script>
+var app = new Vue({
+    el: '#app',
+    data: {
+        filtre: '',
+        presents: [
+            'Ms Daba Highfill',
+            'Ms Sashi Highfill',
+            'Mr Anil Klein',
+            'Mr Twyford Dubois',
+            'Mr Turiau Hudson',
+            'Mr Rearden Harjo',
+            'Mr Zagon Maclean',
+            'Ms Joan Seng',
+            'Mr Siddartha Mackenzie',
+            'Ms Adesina Acton',
+            'Ms Georgette Acton',
+            'Mr Tolga Geist',
+            'Ms Alberta Highfill',
+            'Mr Karsten Blair',
+            'Mr Wieslav Highfill',
+            'Ms Kamila Boettcher',
+            'Mr Waseem Maclean',
+            'Ms Daba Maclean',
+            'Mr Rishab Seng',
+            'Mr Dickinson Wichman'
+        ],
+    },
+    computed: {
+        presentsFiltres() {
+            const filtre = this.filtre.toLowerCase()
+            return this.presents.filter((el) => {
+                return el.toLowerCase().includes(filtre)
+            })
+        }
+    }
+})
+</script>
+
+<style>
+.list-enter-active, .list-leave-active {
+    transition: all 1s;
+}
+
+.list-enter /* .list-leave-active below version 2.1.8 */
+{
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.list-leave-to {
+    opacity: 0;
+    transform: translateX(30px);
+}
+
+.list-move {
+    transition: all 1s;
+}
+</style>
+</body>
+</html>
