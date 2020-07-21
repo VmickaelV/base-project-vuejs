@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>My first Vue app</title>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+<div id="app">
+    <h1>Inscription</h1>
+
+    <form>
+        <div class="field">
+            <label for="name">Nom</label>
+            <input id="name" placeholder="Votre nom" />
+            <div class="error">La taille doit être entre 3 et 10 lettres et tout en majuscule</div>
+        </div>
+
+        <div class="field invalid">
+            <label for="firstname">Prénom</label>
+            <input id="firstname" placeholder="Votre prénom" />
+            <div class="error">Le prénom doit être capitalisé</div>
+        </div>
+
+        <div class="field invalid">
+            <label for="email">Email</label>
+            <input id="email" placeholder="Votre mail (ex: adupont@wanadoo.fr)" />
+            <div class="error">Format email Invalide</div>
+        </div>
+
+        <button disabled>S'inscrire</button>
+    </form>
+</div>
+
+<script>
+function capitalize(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+}
+
+const emailRegexp = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/
+
+var app = new Vue({
+    el: '#app',
+    data: {
+
+    },
+    methods: {
+
+    },
+    computed: {
+
+    },
+})
+</script>
+
+<style>
+.field.invalid {
+    color: red
+}
+.field.invalid input {
+    border-color: red
+}
+
+.field .error {
+    display: none;
+}
+
+.field.invalid .error {
+    display: inherit;
+}
+
+</style>
+</body>
+</html>

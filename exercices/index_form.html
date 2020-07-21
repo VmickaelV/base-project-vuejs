@@ -10,25 +10,26 @@
     <h1>Inscription</h1>
 
     <form>
-        <div class="field" :class="{invalid: !lazy && !nameValid}">
+        <div class="field" :class="{invalid: !nameValid}">
             <label for="name">Nom</label>
             <input id="name" v-model="form.name" placeholder="Votre nom" />
             <div class="info">La taille doit être entre 3 et 10 lettres et tout en majuscule</div>
         </div>
 
-        <div class="field" :class="{invalid: !lazy && !firstnameValid}">
+        <div class="field" :class="{invalid: !firstnameValid}">
             <label for="firstname">Prénom</label>
             <input id="firstname" v-model="form.firstname" placeholder="Votre prénom" />
             <div class="error">{{ firstname_error }}</div>
+<!--            <div class="error_message">Le prénom doit être capitalisé</div>-->
         </div>
 
-        <div class="field" :class="{invalid: !lazy && !emailValid}">
+        <div class="field" :class="{invalid: !emailValid}">
             <label for="email">Email</label>
             <input id="email" v-model="form.email" placeholder="Votre mail (ex: adupont@wanadoo.fr)" />
             <div class="error">Format email Invalide</div>
         </div>
 
-        <button @click.prevent="send" :disabled="!lazy && !validForm">S'inscrire</button>
+        <button @click.prevent="send" :disabled="!validForm">S'inscrire</button>
     </form>
 </div>
 
@@ -36,6 +37,8 @@
 function capitalize(string) {
     return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
 }
+
+const emailRegexp = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/
 
 var app = new Vue({
     el: '#app',
@@ -63,7 +66,7 @@ var app = new Vue({
     computed: {
         nameValid() {
             const name = this.form.name
-            return name.length >= 3 && name.length <= 10 && name.toUpperCase() === name
+            return this.lazy || name.length >= 3 && name.length <= 10 && name.toUpperCase() === name
         },
         firstname_error() {
             const firstname = this.form.firstname
@@ -76,13 +79,13 @@ var app = new Vue({
             }
         },
         firstnameValid() {
-          return this.firstname_error === undefined
+          return this.lazy || this.firstname_error === undefined
         },
         validForm() {
             return this.nameValid && this.firstnameValid && this.emailValid
         },
         emailValid() {
-            return this.form.email.includes("@")
+            return this.lazy || this.form.email.match(emailRegexp) != null
         }
     },
 })
