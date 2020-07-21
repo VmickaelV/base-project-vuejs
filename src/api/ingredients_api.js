@@ -1,4 +1,4 @@
-import { axios } from './index'
+import axios from './index'
 
 export class IngredientsApi {
     constructor(axiosInstance) {
