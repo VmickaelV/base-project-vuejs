@@ -1,6 +1,6 @@
 import axios from './index'
 
-export class CocktailApi {
+export class RecipeApi {
     constructor(axiosInstance) {
         this.axios = axiosInstance
     }
@@ -10,4 +10,4 @@ export class CocktailApi {
     }
 }
 
-export default new CocktailApi(axios)
+export default new RecipeApi(axios)
