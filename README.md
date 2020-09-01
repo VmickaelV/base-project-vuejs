@@ -7,7 +7,7 @@ https://gist.githubusercontent.com/chrisvfritz/7f8d7d63000b48493c336e48b3db3e52/
 ## Project setup
 
 ```
-npm run install
+npm install
 yarn install
 ```
 
