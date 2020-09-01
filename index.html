@@ -8,45 +8,6 @@
 <body>
   <div id="app">
     {{ message }}
-
-    <input type="text" v-model="prenom" />
-
-    <input type="checkbox" v-model="seenIf" />
-    <section>
-      <h2>Créer deux boutons ‘+’ et ‘-’, qui incrémentent et décrémentent un compteur qui sera affiché</h2>
-
-      <p>
-        <button @click="nombre--">-</button> {{ nombre }} <button v-on:click="plus">+</button>
-      </p>
-    </section>
-  
-    <section>
-      <h2>Créer un bouton qui, au click, affichera une ‘alert’ JS avec le message de votre choix</h2>
-
-      <p>
-        <button>Alert !</button>
-      </p>
-    </section>
-  
-    <section>
-      <h2>Créer une balise avec un contenu assez voyant, et un bouton qui affichera l’élément s’il n’est pas visible et l’inverse s’il est visible (v-if)</h2>
-
-      <p>
-        <button @click="showIf">Show</button>
-        <img v-if="seenIf" src="https://wallpapercave.com/wp/dhLUaAD.jpg" />
-      </p>
-    </section>
-  
-    <section>
-      <h2>Créer une balise avec un contenu assez voyant, et un bouton qui affichera l’élément s’il n’est pas visible et l’inverse s’il est visible (v-show)</h2>
-
-      <p>
-        <button @click="showShow">Show</button>
-        <img v-show="seenShow" src="http://www.101dogbreeds.com/wp-content/uploads/2014/10/Bernese-Mountain-Dog-Puppy-Pictures.jpg" />
-      </p>
-
-      
-    </section>
   </div>
 
   <script>
@@ -54,24 +15,9 @@
       el: '#app',
       data: {
         message: 'Hello Vue!',
-        nombre: 0,
-        seenIf: false,
-        seenShow: false,
-        prenom: "Inconnu"
       },
       methods: {
-        minus() {
-          this.minus -= 1
-        },
-        plus() {
-          this.nombre++
-        },
-        showIf() {
-          this.seenIf = !this.seenIf
-        },
-        showShow() {
-          this.seenShow = !this.seenShow
-        }
+
       }
     })
   </script>
