@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>My first Vue app</title>
-  <script src="https://unpkg.com/vue"></script>
+  <script src="https://unpkg.com/vue@2.6.14"></script>
 </head>
 <body>
   <div id="app">
@@ -12,7 +12,7 @@
     </div>
 
     <div id="example_probleme">
-        {{ reversedMessage }}
+        {{ reversedMessage }} ({{ lengthMessage }} lettres)
       </div>
   </div>
 
@@ -31,6 +31,9 @@
         reversedMessage: function () {
           // `this` points to the vm instance
           return this.message.split('').reverse().join('')
+        },
+        lengthMessage: function() {
+          return this.reversedMessage.length
         }
       }
     })
