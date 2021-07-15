@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="UTF-8" />
   <title>My first Vue app</title>
   <script src="https://unpkg.com/vue@2.6.14"></script>
 </head>
@@ -17,9 +18,11 @@
 
     var app = new Vue({
       el: '#app',
-      data: {
-        message: 'Hello Vue!'
-      }
+      data() {
+        return {
+          message: 'Hello Vue!'
+        }
+      },
     })
   </script>
 </body>

@@ -122,13 +122,15 @@
 <script>
 var app = new Vue({
     el: '#app',
-    data: {
-        message: 'Hello Vue!',
-        chiffre: 0,
-        showShow: false,
-        showIf: false,
-        showTransition: false,
-        prenom: '',
+    data() {
+        return {
+            message: 'Hello Vue!',
+            chiffre: 0,
+            showShow: false,
+            showIf: false,
+            showTransition: false,
+            prenom: '',
+        }
     },
     methods: {
         plus() {

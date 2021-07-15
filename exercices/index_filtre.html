@@ -20,30 +20,32 @@
 <script>
 var app = new Vue({
     el: '#app',
-    data: {
-        filtre: '',
-        presents: [
-            'Ms Daba Highfill',
-            'Ms Sashi Highfill',
-            'Mr Anil Klein',
-            'Mr Twyford Dubois',
-            'Mr Turiau Hudson',
-            'Mr Rearden Harjo',
-            'Mr Zagon Maclean',
-            'Ms Joan Seng',
-            'Mr Siddartha Mackenzie',
-            'Ms Adesina Acton',
-            'Ms Georgette Acton',
-            'Mr Tolga Geist',
-            'Ms Alberta Highfill',
-            'Mr Karsten Blair',
-            'Mr Wieslav Highfill',
-            'Ms Kamila Boettcher',
-            'Mr Waseem Maclean',
-            'Ms Daba Maclean',
-            'Mr Rishab Seng',
-            'Mr Dickinson Wichman'
-        ],
+    data() {
+        return {
+            filtre: '',
+            presents: [
+                'Ms Daba Highfill',
+                'Ms Sashi Highfill',
+                'Mr Anil Klein',
+                'Mr Twyford Dubois',
+                'Mr Turiau Hudson',
+                'Mr Rearden Harjo',
+                'Mr Zagon Maclean',
+                'Ms Joan Seng',
+                'Mr Siddartha Mackenzie',
+                'Ms Adesina Acton',
+                'Ms Georgette Acton',
+                'Mr Tolga Geist',
+                'Ms Alberta Highfill',
+                'Mr Karsten Blair',
+                'Mr Wieslav Highfill',
+                'Ms Kamila Boettcher',
+                'Mr Waseem Maclean',
+                'Ms Daba Maclean',
+                'Mr Rishab Seng',
+                'Mr Dickinson Wichman'
+            ],
+        }
     },
     computed: {
         presentsFiltres() {

@@ -20,12 +20,14 @@
 <script>
 var app = new Vue({
     el: '#app',
-    data: {
-        element: '',
-        courses: [
-            'bananes', 'chocolat', 'noisettes',
-        ],
-        filter: '',
+    data() {
+        return {
+            element: '',
+            courses: [
+                'bananes', 'chocolat', 'noisettes',
+            ],
+            filter: '',
+        }
     },
     methods: {
         ajout() {

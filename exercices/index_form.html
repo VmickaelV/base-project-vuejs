@@ -42,13 +42,15 @@ const emailRegexp = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/
 
 var app = new Vue({
     el: '#app',
-    data: {
-        form: {
-            name: '',
-            firstname: '',
-            email: ''
-        },
-        lazy: true,
+    data() {
+        return {
+            form: {
+                name: '',
+                firstname: '',
+                email: ''
+            },
+            lazy: false,
+        }
     },
     methods: {
         send() {
