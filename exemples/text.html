@@ -12,6 +12,8 @@
     <p>{{ text }}</p>
     <p>Bonjour {{ prenom }}</p>
     <p>{{ rawHtml }}</p>
+    <p>2*2 = {{ pow(2) }}</p>
+    <p>6*6 = {{ pow(6) }}</p>
   </div>
 
   <script>
@@ -21,6 +23,11 @@
         text: 'Je suis un texte',
         prenom: 'Mickael',
         rawHtml: '<p>Je suis un texte</p>'
+      },
+      methods: {
+        pow(value) {
+          return value * value
+        }
       }
     })
   </script>
