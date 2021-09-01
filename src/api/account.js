@@ -12,7 +12,7 @@ export class AccountApi {
     login(login, password) {
       return this.axios.post('/login', { username: login, password }, {
         auth: {
-          username: uname,
+          username: login,
           password: pass
         }
       })
