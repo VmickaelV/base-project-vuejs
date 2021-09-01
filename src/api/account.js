@@ -13,8 +13,12 @@ export class AccountApi {
       return this.axios.post('/login', { username: login, password }, {
         auth: {
           username: login,
-          password: pass
+          password: password
         }
+      }).then(() => {
+        const token = `${login}:${password}`;
+        const encodedToken = Buffer.from(token).toString('base64');
+        axios.defaults.headers.common['Authorization'] = 'Basic ' + encodedToken
       })
     }
 }

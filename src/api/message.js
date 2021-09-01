@@ -10,8 +10,8 @@ export class MessageApi {
     }
 
     send(message) {
-      return this.axios.post('/login', { message })
+      return this.axios.post('/api/messages', { message })
     }
 }
 
-export default new AccountApi(axios)
+export default new MessageApi(axios)
