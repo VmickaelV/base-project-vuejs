@@ -9,7 +9,7 @@
 <div id="app">
     <section>
         <h2>Créer deux pouton + et - avec incrémentation et décrémentation</h2>
-        <button @click="plus">+</button>
+        <button @click="plus(1)" @click.ctrl="plus(100)">+</button>
         {{ chiffre }}
         <button @click="chiffre--">-</button>
     </section>
@@ -133,8 +133,8 @@ var app = new Vue({
         }
     },
     methods: {
-        plus() {
-            this.chiffre++
+        plus(n = 1) {
+            this.chiffre+=n
         },
         moins() {
             this.chiffre--
