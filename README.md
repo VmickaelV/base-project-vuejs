@@ -25,3 +25,8 @@ yarn build
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### Bouts de codes intéressants
+
+import accountApi from '@/api/account'
+import messageApi from '@/api/message'

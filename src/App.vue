@@ -1,12 +1,34 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <template v-if="isConnected">
+        <router-link to="/">Home</router-link>
+      </template>
+      <template v-else>
+        <router-link to="/signin">Inscription</router-link> | 
+        <router-link to="/login">Connexion</router-link>
+      </template>
     </div>
     <router-view/>
   </div>
 </template>
+
+<script>
+import loginStore from '@/store/login'
+
+export default {
+  data() {
+    return {
+      loginStore,
+    }
+  },
+  computed: {
+    isConnected() { 
+      return !!loginStore.token
+    }
+  }
+}
+</script>
 
 <style>
 #app {

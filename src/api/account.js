@@ -1,5 +1,5 @@
 import axios from './index'
-
+import loginStore from '@/store/login'
 export class AccountApi {
     constructor(axiosInstance) {
         this.axios = axiosInstance
@@ -17,7 +17,8 @@ export class AccountApi {
         }
       }).then(() => {
         const token = `${login}:${password}`;
-        const encodedToken = btoa(token);
+        const encodedToken = Buffer.from(token, 'base64');
+        loginStore.token = encodedToken
         axios.defaults.headers.common['Authorization'] = 'Basic ' + encodedToken
       })
     }
