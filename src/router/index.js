@@ -23,6 +23,8 @@ const routes = [
 ]
 
 const router = new VueRouter({
+  mode: 'history',
+  base: import.meta.env.BASE_URL,
   routes
 })
 

@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div id="nav">
+    <nav id="nav">
       <template v-if="isConnected">
         <router-link to="/">Home</router-link>
       </template>
@@ -8,7 +8,7 @@
         <router-link to="/signin">Inscription</router-link> | 
         <router-link to="/login">Connexion</router-link>
       </template>
-    </div>
+    </nav>
     <router-view/>
   </div>
 </template>
@@ -30,7 +30,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -39,16 +39,16 @@ export default {
   color: #2c3e50;
 }
 
-#nav {
+nav {
   padding: 30px;
-}
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
+  a {
+    font-weight: bold;
+    color: #2c3e50;
 
-#nav a.router-link-exact-active {
-  color: #42b983;
+    &.router-link-exact-active {
+      color: #42b983;
+    }
+  }
 }
 </style>
