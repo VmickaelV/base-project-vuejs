@@ -17,7 +17,7 @@ export class AccountApi {
         }
       }).then(() => {
         const token = `${login}:${password}`;
-        const encodedToken = Buffer.from(token, 'base64');
+        const encodedToken = btoa(token, 'base64');
         loginStore.token = encodedToken
         axios.defaults.headers.common['Authorization'] = 'Basic ' + encodedToken
       })
