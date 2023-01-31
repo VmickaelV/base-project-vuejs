@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>My first Vue app</title>
-  <script src="https://unpkg.com/vue@2.6.14"></script>
+  <script src="https://unpkg.com/vue@3"></script>
   <meta charset="UTF-8" />
 </head>
 <body>
@@ -11,9 +11,10 @@
   </div>
 
   <script>
-    var app = new Vue({
-      el: '#app',
-      data() {
+    const { createApp } = Vue
+
+	createApp({
+	  data() {
         return {
           message: 'Hello Vue!',
         }
@@ -21,7 +22,9 @@
       methods: {
 
       }
-    })
+
+	}).mount('#app')
+
   </script>
 </body>
 </html>
