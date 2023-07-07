@@ -19,9 +19,16 @@ export class AccountApi {
         const token = `${login}:${password}`;
         const encodedToken = btoa(token, 'base64');
         loginStore.token = encodedToken
+        loginStore.isConnected = true
         axios.defaults.headers.common['Authorization'] = 'Basic ' + encodedToken
       })
     }
+
+    logout() {
+      loginStore.token = undefined
+      loginStore.isConnected = false
+    }
 }
 
-export default new AccountApi(axios)
+const accountApi = new AccountApi(axios)
+export default  accountApi
